@@ -17,6 +17,7 @@ public class SinglyLinkedList<T> {
 
     public Node<T> head;
     public Node<T> current;
+    private Object lenth;
 
     public SinglyLinkedList() {
         head = new Node<>();
@@ -76,7 +77,6 @@ public class SinglyLinkedList<T> {
             current = current.next;
             i++;
         }
-        Log.d("\nindex : " + current.value + "\n");
         return current;
     }
 
@@ -157,5 +157,37 @@ public class SinglyLinkedList<T> {
 
         Log.d("\n节点反转");
         linkedList.printAllNode(linkedList.revertUntilNode(linkedList.index(1)));
+    }
+
+    public void clear() {
+        current = head;
+        while (current != null) {
+            head.next = current.next;
+            current = current.next;
+        }
+    }
+
+    public Node<T> delete(Node<T> node) {
+        if (node == null) {
+            return null;
+        }
+        Node pre = head;
+        while (pre.next != node) {
+            pre = pre.next;
+        }
+
+        pre.next = node.next;
+        node.next = null;
+        return node;
+    }
+
+    public int getLength() {
+        int length = 0;
+        current = head.next;
+        while (current != null) {
+            current = current.next;
+            length++;
+        }
+        return length;
     }
 }
