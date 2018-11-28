@@ -26,7 +26,7 @@ public class Palindrome {
         }
 
         //快慢指针
-        SinglyLinkedList.Node slow, quick, middle;
+        Node slow, quick, middle;
         slow = quick = list.head;
 
         while (quick.next != null && quick.next.next != null) {
@@ -34,7 +34,7 @@ public class Palindrome {
             quick = quick.next.next;
         }
 
-        SinglyLinkedList.Node left, right;
+        Node left, right;
         if (quick.next != null) {
             //奇数
             middle = slow.next;

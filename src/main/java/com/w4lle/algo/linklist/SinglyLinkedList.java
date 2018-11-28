@@ -14,18 +14,6 @@ import com.w4lle.algo.Log;
  * @param <T>
  */
 public class SinglyLinkedList<T> {
-    class Node<T> {
-        public Node() {
-            this(null);
-        }
-
-        public Node(T value) {
-            this.value = value;
-        }
-
-        public Node<T> next;
-        public T value;
-    }
 
     public Node<T> head;
     public Node<T> current;
@@ -84,10 +72,7 @@ public class SinglyLinkedList<T> {
     public Node<T> index(int index) {
         current = head.next;
         int i = 0;
-        while (current != null) {
-            if (i == index) {
-                break;
-            }
+        while (current != null && i != index) {
             current = current.next;
             i++;
         }
