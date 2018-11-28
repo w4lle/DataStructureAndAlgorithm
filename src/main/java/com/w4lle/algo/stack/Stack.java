@@ -1,5 +1,6 @@
-package com.w4lle.algo;
+package com.w4lle.algo.stack;
 
+import com.w4lle.algo.Log;
 import com.w4lle.algo.linklist.SinglyLinkedList;
 
 /**
