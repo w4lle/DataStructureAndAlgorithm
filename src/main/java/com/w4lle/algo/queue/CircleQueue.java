@@ -56,8 +56,6 @@ public class CircleQueue<T> {
         testDequeue(queue);
         testDequeue(queue);
         testDequeue(queue);
-
-
     }
 
     private static void testEnqueue(CircleQueue queue, String string) {
