@@ -8,6 +8,9 @@ package com.w4lle.algo;
 
 public class Log {
     public static void d(String string) {
+        if (!string.endsWith("\n")) {
+            string = string + "\n";
+        }
         System.out.print(string);
     }
 }
