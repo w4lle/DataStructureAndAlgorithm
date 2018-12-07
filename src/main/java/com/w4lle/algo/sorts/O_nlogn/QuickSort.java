@@ -22,6 +22,12 @@ import com.w4lle.algo.sorts.Sortable;
  * <p>
  * 非稳定排序算法，相同值的位置可能会改变
  * <p>
+ * 为了避免极端情况的发生，当分区两端数据均衡情况下，算法最优，分区选点优化：
+ * <p>
+ * 1. 三数取中，头、中间、尾 三个数取中间的数
+ * <p>
+ * 2. 随机
+ * <p>
  * <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxw08wpwwmj30wk0u0jxj.jpg">
  */
 public class QuickSort implements Sortable {
