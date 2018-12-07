@@ -7,6 +7,7 @@ package com.w4lle.algo.sorts.O_n2;
 
 
 import com.w4lle.algo.Log;
+import com.w4lle.algo.sorts.Sortable;
 
 /**
  * 冒泡排序
@@ -23,7 +24,8 @@ import com.w4lle.algo.Log;
  * <p>
  * <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxp10flrexj30wo0u0gvl.jpg">
  */
-public class BubbleSort {
+public class BubbleSort implements Sortable {
+
     public static void bubbleSort(int[] array) {
         int length;
         if (array == null || (length = array.length) == 0) {
@@ -53,5 +55,10 @@ public class BubbleSort {
                 array) {
             Log.d(String.valueOf(v) + ", ");
         }
+    }
+
+    @Override
+    public void sort(int[] array) {
+        bubbleSort(array);
     }
 }

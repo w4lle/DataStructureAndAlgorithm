@@ -7,6 +7,7 @@ package com.w4lle.algo.sorts.O_n2;
 
 
 import com.w4lle.algo.Log;
+import com.w4lle.algo.sorts.Sortable;
 
 /**
  * 插入排序，选取端点一个元素作为有序集起点，依次向有续集中插入数据并保持有序
@@ -23,7 +24,7 @@ import com.w4lle.algo.Log;
  * <p>
  * <img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxp1aokybdj319n0u0ads.jpg">
  */
-public class InsertionSort {
+public class InsertionSort implements Sortable {
     public static void insertionSort(int[] arrays) {
         int length;
         if (arrays == null || (length = arrays.length) == 0) {
@@ -55,5 +56,10 @@ public class InsertionSort {
                 arr) {
             Log.d(v + ", ");
         }
+    }
+
+    @Override
+    public void sort(int[] array) {
+        insertionSort(array);
     }
 }

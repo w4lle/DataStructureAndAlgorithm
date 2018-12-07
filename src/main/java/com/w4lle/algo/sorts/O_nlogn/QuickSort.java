@@ -1,6 +1,7 @@
 package com.w4lle.algo.sorts.O_nlogn;
 
 import com.w4lle.algo.Log;
+import com.w4lle.algo.sorts.Sortable;
 
 /**
  * Created by w4lle on 2018/12/5.
@@ -23,8 +24,9 @@ import com.w4lle.algo.Log;
  * <p>
  * <img src="https://ws1.sinaimg.cn/large/006tNbRwly1fxw08wpwwmj30wk0u0jxj.jpg">
  */
-public class QuickSort {
-    public static void sort(int[] array) {
+public class QuickSort implements Sortable {
+
+    public static void quickSort(int[] array) {
         if (array == null || array.length == 0) {
             return;
         }
@@ -83,7 +85,7 @@ public class QuickSort {
         //退出时，leftIndex==rightIndex，填最后一个坑
         array[rightIndex] = pivot;
 //        Log.d("start : " + start + ", end : " + end);
-        Log.d("wakeng pivotIndex: " + leftIndex);
+//        Log.d("wakeng pivotIndex: " + leftIndex);
         return leftIndex;
     }
 
@@ -171,7 +173,6 @@ public class QuickSort {
      * 你希望将这 10 个较小的日志文件，合并为 1 个日志文件，合并之后的日志仍然按照时间戳从小到大排列。
      * <p>
      * 如果处理上述排序任务的机器内存只有 1GB，你有什么好的解决思路，能“快速”地将这 10 个日志文件合并吗？
-     *
      */
 
     public static void mergeLogFiles(int[][] files) {
@@ -189,10 +190,15 @@ public class QuickSort {
         int[] arr = {3, 5, 2, 6, 8, 1, 9};
         int k = 2;
 //        Log.d("第" + k + "小的数 : " + findKMin(arr, k, 0, arr.length - 1));
-        sort(arr);
+        quickSort(arr);
         for (int v :
                 arr) {
             Log.d(v + ", ");
         }
+    }
+
+    @Override
+    public void sort(int[] array) {
+        quickSort(array);
     }
 }

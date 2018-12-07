@@ -7,6 +7,7 @@ package com.w4lle.algo.sorts.O_n2;
 
 
 import com.w4lle.algo.Log;
+import com.w4lle.algo.sorts.Sortable;
 
 /**
  * 选择排序，类似插入排序，分为未排序区间和已排序区间，从未排序区间中找到最小的数，插入已排序区间最右
@@ -21,7 +22,7 @@ import com.w4lle.algo.Log;
  * <p>
  * <img src="https://ws2.sinaimg.cn/large/006tNbRwly1fxp2qjv8bcj31380u0n1r.jpg">
  */
-public class SelectionSort {
+public class SelectionSort implements Sortable {
     public static void selectionSort(int[] arrays) {
         int length;
         if (arrays == null || (length = arrays.length) == 0) {
@@ -51,5 +52,10 @@ public class SelectionSort {
                 arr) {
             Log.d(v + ", ");
         }
+    }
+
+    @Override
+    public void sort(int[] array) {
+        selectionSort(array);
     }
 }

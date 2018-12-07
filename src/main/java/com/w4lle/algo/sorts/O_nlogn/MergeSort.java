@@ -7,6 +7,7 @@ package com.w4lle.algo.sorts.O_nlogn;
 
 
 import com.w4lle.algo.Log;
+import com.w4lle.algo.sorts.Sortable;
 
 /**
  * 归并排序，分治
@@ -29,8 +30,8 @@ import com.w4lle.algo.Log;
  * <p>
  * <img src="https://ws4.sinaimg.cn/large/006tNbRwly1fxq3ihz1zaj30x10u0wmk.jpg">
  */
-public class MergeSort {
-    public static void sort(int[] array) {
+public class MergeSort implements Sortable {
+    public static void mergeSort(int[] array) {
         if (array == null || array.length == 0) {
             return;
         }
@@ -44,7 +45,7 @@ public class MergeSort {
         }
 
         int middle = (start + end) / 2;
-        Log.d("mergeSort start : " + start + ", middle : " + middle + ", end : " + end);
+//        Log.d("mergeSort start : " + start + ", middle : " + middle + ", end : " + end);
 
         //分解为左边排序和右边排序
         mergeSort(array, start, middle);
@@ -67,7 +68,7 @@ public class MergeSort {
         int sortedIndex = 0;
         int leftIndex = start, rightIndex = middle + 1;
         int leftEnd = middle, rightEnd = end;
-        Log.d("mergeSortedArray start : " + start + ", middle : " + middle + ", end : " + end);
+//        Log.d("mergeSortedArray start : " + start + ", middle : " + middle + ", end : " + end);
 
         while (leftIndex <= leftEnd && rightIndex <= rightEnd) {
             //依次比较，将左右较小的数放入新数组
@@ -93,10 +94,10 @@ public class MergeSort {
             sorted[sortedIndex++] = array[remainStart++];
         }
 
-        for (int v :
+/*        for (int v :
                 sorted) {
             Log.d(v + ", ");
-        }
+        }*/
 
         //拷贝回原始数组
         System.arraycopy(sorted, 0, array, start, end - start + 1);
@@ -104,10 +105,15 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] arr = {3, 5, 2, 6, 8, 1, 9};
-        sort(arr);
+        mergeSort(arr);
         for (int v :
                 arr) {
             Log.d(v + ", ");
         }
+    }
+
+    @Override
+    public void sort(int[] array) {
+        mergeSort(array);
     }
 }
